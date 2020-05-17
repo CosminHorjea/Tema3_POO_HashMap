@@ -6,25 +6,25 @@ using namespace std;
 void runHashMapTests()
 {
 	HashMap<string, int> h;
-	assert(h.getNumberOfDistinctKeys() == 0);
+	assert(h.getNumberOfDistinctKeys() == 0); // test pentru initializare
 	h.put("Ionel", 15);
 	h.put("Ana", 16);
 	h.put("Maria", 18);
 	h.put("Ionel", 12);
-	assert(h.getNumberOfDistinctKeys() == 3);
+	assert(h.getNumberOfDistinctKeys() == 3); //test pentru inserari
 	h.deleteKey("Ionel");
-	assert(h.getNumberOfDistinctKeys() == 2);
+	assert(h.getNumberOfDistinctKeys() == 2); // test pentru delete
 	HashMap<string, int> h2;
 	h2 = h;
-	assert(h2.getNumberOfDistinctKeys() == 2);
+	assert(h2.getNumberOfDistinctKeys() == 2); // test pentru operator=
 	HashMap<string, int> h3(h);
-	assert(h3.getNumberOfDistinctKeys() == 2);
-	assert(h.searchKey("Ana") == 1);
-	assert(h.searchKey("Ana2") == 0);
+	assert(h3.getNumberOfDistinctKeys() == 2); // test pentru copy constructor
+	assert(h.searchKey("Ana") == 1);		   // test pentru search key existent
+	assert(h.searchKey("Ana2") == 0);		   //test search pentru key inexistent
 	h.put("Ana", 22);
-	assert(h.getValues("Ana").size() == 2);
-	assert(h["Maria"] == 18);
-	//cout << h;
+	assert(h.getValues("Ana").size() == 2); //test pentru aflara valorilor pentru o cheie
+	assert(h["Maria"] == 18);				//test pentru operator[]
+											// cout << h;
 }
 
 int main()
